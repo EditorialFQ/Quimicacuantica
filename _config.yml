@@ -1,0 +1,33 @@
+# Book settings
+title: Cuántica I
+author: M. en C. Juan Felipe Huan Lew Yee, Dr. José Eduardo Barrios Vargas, Dr. Jorge Martín del Campo Ramírez. Departamento de Física y Química Teórica, Facultad de Química, Universidad Nacional Autónoma de México
+logo: logo.png
+
+launch_buttons:
+  colab_url                 : https://colab.research.google.com # The URL of Google Colab (e.g., https://colab.research.google.com)
+  binderhub_url             : https://mybinder.org
+  thebe                     : true
+
+repository:
+  url                       : https://github.com/felipelewyee/Cuantica-I  # The URL to your book's repository
+  branch                    : master  # Which branch of the repository should be used when creating links
+
+latex:
+  latex_documents:
+    targetname: book.tex
+
+execute:
+  timeout: 100
+
+parse:
+  myst_enable_extensions:
+    - "amsmath"
+    - "colon_fence"
+    - "deflist"
+    - "dollarmath"
+    - "html_admonition"
+    - "html_image"
+    - "linkify"
+    - "replacements"
+    - "smartquotes"
+    - "substitution"
