@@ -554,15 +554,117 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Descomentar estas líneas si está en modo online</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Descomentar estas líneas si está en modo online
 
-<span class="c1">#!pip install pyscf</span>
+#!pip install pyscf
 
-<span class="kn">import</span> <span class="nn">pyscf</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">eigh</span>
-<span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
-<span class="n">sp</span><span class="o">.</span><span class="n">init_printing</span><span class="p">()</span>
+import pyscf
+import numpy as np
+from scipy.linalg import eigh
+import sympy as sp
+sp.init_printing()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
+<span class="nn">File ~/opt/anaconda3/envs/jb/lib/python3.10/site-packages/pyscf/lib/misc.py:55,</span> in <span class="ni">load_library</span><span class="nt">(libname)</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span>     <span class="n">_loaderpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">55</span>     <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ctypeslib</span><span class="o">.</span><span class="n">load_library</span><span class="p">(</span><span class="n">libname</span><span class="p">,</span> <span class="n">_loaderpath</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">56</span> <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/jb/lib/python3.10/site-packages/numpy/ctypeslib.py:158,</span> in <span class="ni">load_library</span><span class="nt">(libname, loader_path)</span>
+<span class="g g-Whitespace">    </span><span class="mi">157</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">158</span>     <span class="k">return</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">cdll</span><span class="p">[</span><span class="n">libpath</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">159</span> <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">160</span>     <span class="c1">## defective lib file</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/jb/lib/python3.10/ctypes/__init__.py:449,</span> in <span class="ni">LibraryLoader.__getitem__</span><span class="nt">(self, name)</span>
+<span class="g g-Whitespace">    </span><span class="mi">448</span> <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">449</span>     <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/jb/lib/python3.10/ctypes/__init__.py:444,</span> in <span class="ni">LibraryLoader.__getattr__</span><span class="nt">(self, name)</span>
+<span class="g g-Whitespace">    </span><span class="mi">443</span>     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">444</span> <span class="n">dll</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dlltype</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">445</span> <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dll</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/jb/lib/python3.10/ctypes/__init__.py:374,</span> in <span class="ni">CDLL.__init__</span><span class="nt">(self, name, mode, handle, use_errno, use_last_error, winmode)</span>
+<span class="g g-Whitespace">    </span><span class="mi">373</span> <span class="k">if</span> <span class="n">handle</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">374</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">_dlopen</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">375</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">OSError</span>: dlopen(/Users/brenda/opt/anaconda3/envs/jb/lib/python3.10/site-packages/pyscf/lib/libnp_helper.dylib, 6): Library not loaded: /usr/local/opt/libomp/lib/libomp.dylib
+  <span class="n">Referenced</span> <span class="n">from</span><span class="p">:</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">brenda</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">jb</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pyscf</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">libnp_helper</span><span class="o">.</span><span class="n">dylib</span>
+  <span class="n">Reason</span><span class="p">:</span> <span class="n">image</span> <span class="ow">not</span> <span class="n">found</span>
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Descomentar estas líneas si está en modo online</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#!pip install pyscf</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">pyscf</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">eigh</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">jb</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pyscf</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">113</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span>     <span class="n">_internal</span><span class="o">.</span><span class="n">_get_void_ptr</span> <span class="o">=</span> <span class="n">_get_void_ptr</span>
+<span class="g g-Whitespace">    </span><span class="mi">112</span> <span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">__config__</span>
+<span class="ne">--&gt; </span><span class="mi">113</span> <span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">lib</span>
+<span class="g g-Whitespace">    </span><span class="mi">114</span> <span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">gto</span>
+<span class="g g-Whitespace">    </span><span class="mi">115</span> <span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">scf</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">jb</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pyscf</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">24</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">from</span> <span class="nn">pyscf.lib</span> <span class="kn">import</span> <span class="n">parameters</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="n">param</span> <span class="o">=</span> <span class="n">parameters</span>
+<span class="ne">---&gt; </span><span class="mi">24</span> <span class="kn">from</span> <span class="nn">pyscf.lib</span> <span class="kn">import</span> <span class="n">numpy_helper</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="kn">from</span> <span class="nn">pyscf.lib</span> <span class="kn">import</span> <span class="n">linalg_helper</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="kn">from</span> <span class="nn">pyscf.lib</span> <span class="kn">import</span> <span class="n">scipy_helper</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">jb</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pyscf</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">numpy_helper</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">39</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="k">except</span> <span class="p">(</span><span class="ne">ImportError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span>     <span class="n">FOUND_TBLIS</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="ne">---&gt; </span><span class="mi">39</span> <span class="n">_np_helper</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">load_library</span><span class="p">(</span><span class="s1">&#39;libnp_helper&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="n">BLOCK_DIM</span> <span class="o">=</span> <span class="mi">192</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="n">PLAIN</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/jb/lib/python3.10/site-packages/pyscf/lib/misc.py:63,</span> in <span class="ni">load_library</span><span class="nt">(libname)</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span>         <span class="k">for</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">libpath</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span>             <span class="k">if</span> <span class="n">files</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">libname</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">63</span>                 <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ctypeslib</span><span class="o">.</span><span class="n">load_library</span><span class="p">(</span><span class="n">libname</span><span class="p">,</span> <span class="n">libpath</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">64</span> <span class="k">raise</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/jb/lib/python3.10/site-packages/numpy/ctypeslib.py:158,</span> in <span class="ni">load_library</span><span class="nt">(libname, loader_path)</span>
+<span class="g g-Whitespace">    </span><span class="mi">156</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">libpath</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">157</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">158</span>         <span class="k">return</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">cdll</span><span class="p">[</span><span class="n">libpath</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">159</span>     <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">160</span>         <span class="c1">## defective lib file</span>
+<span class="g g-Whitespace">    </span><span class="mi">161</span>         <span class="k">raise</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/jb/lib/python3.10/ctypes/__init__.py:449,</span> in <span class="ni">LibraryLoader.__getitem__</span><span class="nt">(self, name)</span>
+<span class="g g-Whitespace">    </span><span class="mi">448</span> <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">449</span>     <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/jb/lib/python3.10/ctypes/__init__.py:444,</span> in <span class="ni">LibraryLoader.__getattr__</span><span class="nt">(self, name)</span>
+<span class="g g-Whitespace">    </span><span class="mi">442</span> <span class="k">if</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;_&#39;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">443</span>     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">444</span> <span class="n">dll</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dlltype</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">445</span> <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dll</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">446</span> <span class="k">return</span> <span class="n">dll</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/jb/lib/python3.10/ctypes/__init__.py:374,</span> in <span class="ni">CDLL.__init__</span><span class="nt">(self, name, mode, handle, use_errno, use_last_error, winmode)</span>
+<span class="g g-Whitespace">    </span><span class="mi">371</span> <span class="bp">self</span><span class="o">.</span><span class="n">_FuncPtr</span> <span class="o">=</span> <span class="n">_FuncPtr</span>
+<span class="g g-Whitespace">    </span><span class="mi">373</span> <span class="k">if</span> <span class="n">handle</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">374</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">_dlopen</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">375</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">376</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">handle</span>
+
+<span class="ne">OSError</span>: dlopen(/Users/brenda/opt/anaconda3/envs/jb/lib/python3.10/site-packages/pyscf/lib/libnp_helper.dylib, 6): Library not loaded: /usr/local/opt/libomp/lib/libomp.dylib
+  <span class="n">Referenced</span> <span class="n">from</span><span class="p">:</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">brenda</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">jb</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pyscf</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">libnp_helper</span><span class="o">.</span><span class="n">dylib</span>
+  <span class="n">Reason</span><span class="p">:</span> <span class="n">image</span> <span class="ow">not</span> <span class="n">found</span>
 </pre></div>
 </div>
 </div>
@@ -570,11 +672,11 @@ title="Print to PDF"
 <p><strong>Paso 1.</strong> Especificar molécula: Coordenadas de los núcleos <span style="color:red"><span class="math notranslate nohighlight">\(\{R_A\}\)</span></span>, Carga de los núcleos <span style="color:red"><span class="math notranslate nohighlight">\(\{Z_A\}\)</span></span>, Número de electrones <span style="color:red"><span class="math notranslate nohighlight">\((N)\)</span></span>, y funciones base <span style="color:red"><span class="math notranslate nohighlight">\(\{\phi_i\}\)</span></span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H2</span> <span class="o">=</span> <span class="n">pyscf</span><span class="o">.</span><span class="n">gto</span><span class="o">.</span><span class="n">Mole</span><span class="p">(</span><span class="n">atom</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">    H 0.0000  0.0000 0.0000</span>
-<span class="s2">    H 0.0000  0.0000 0.7414 </span>
-<span class="s2">    &quot;&quot;&quot;</span><span class="p">,</span><span class="n">basis</span> <span class="o">=</span> <span class="s2">&quot;STO-3G&quot;</span><span class="p">)</span>
-<span class="n">H2</span> <span class="o">=</span> <span class="n">H2</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>H2 = pyscf.gto.Mole(atom = &quot;&quot;&quot;
+    H 0.0000  0.0000 0.0000
+    H 0.0000  0.0000 0.7414 
+    &quot;&quot;&quot;,basis = &quot;STO-3G&quot;)
+H2 = H2.build()
 </pre></div>
 </div>
 </div>
@@ -602,24 +704,24 @@ H_{ij} = T_{ij} + V_{ij}
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">H2</span><span class="o">.</span><span class="n">intor</span><span class="p">(</span><span class="s1">&#39;int1e_ovlp&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----------------Matriz S----------------&quot;</span><span class="p">)</span>
-<span class="n">sp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>S = H2.intor(&#39;int1e_ovlp&#39;)
+print(&quot;----------------Matriz S----------------&quot;)
+sp.pprint(sp.Matrix(S))
 
-<span class="n">T</span> <span class="o">=</span> <span class="n">H2</span><span class="o">.</span><span class="n">intor</span><span class="p">(</span><span class="s1">&#39;int1e_kin&#39;</span><span class="p">)</span>
-<span class="n">V</span> <span class="o">=</span> <span class="n">H2</span><span class="o">.</span><span class="n">intor</span><span class="p">(</span><span class="s1">&#39;int1e_nuc&#39;</span><span class="p">)</span>
-<span class="n">H</span><span class="o">=</span><span class="n">T</span><span class="o">+</span><span class="n">V</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----------------Matriz H----------------&quot;</span><span class="p">)</span>
-<span class="n">sp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">H</span><span class="p">))</span>
+T = H2.intor(&#39;int1e_kin&#39;)
+V = H2.intor(&#39;int1e_nuc&#39;)
+H=T+V
+print(&quot;----------------Matriz H----------------&quot;)
+sp.pprint(sp.Matrix(H))
 
-<span class="n">I</span> <span class="o">=</span> <span class="n">H2</span><span class="o">.</span><span class="n">intor</span><span class="p">(</span><span class="s1">&#39;int2e&#39;</span><span class="p">)</span>
-<span class="c1">#print(&quot;Integrales (ij|kl):&quot;)</span>
-<span class="c1">#print(I)</span>
+I = H2.intor(&#39;int2e&#39;)
+#print(&quot;Integrales (ij|kl):&quot;)
+#print(I)
 
-<span class="n">nbf</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">ndocc</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">H2</span><span class="o">.</span><span class="n">nelectron</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-<span class="c1">#print(nbf)</span>
-<span class="c1">#print(ndocc)</span>
+nbf = S.shape[0]
+ndocc = int(H2.nelectron/2)
+#print(nbf)
+#print(ndocc)
 </pre></div>
 </div>
 </div>
@@ -639,8 +741,8 @@ H_{ij} = T_{ij} + V_{ij}
 <p><strong>Paso 3.</strong> Proponer una matriz C.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nbf</span><span class="p">,</span><span class="n">nbf</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>C = np.zeros((nbf,nbf))
+print(C)
 </pre></div>
 </div>
 </div>
@@ -674,66 +776,66 @@ K_{\mu \nu} = \sum_{\lambda \sigma} P_{\lambda \sigma} (\mu \lambda | \sigma \nu
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E_old</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>
-<span class="n">converged</span><span class="o">=</span><span class="kc">False</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>E_old = -1.0
+converged=False
 
-<span class="k">while</span><span class="p">(</span><span class="ow">not</span> <span class="n">converged</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------------------------------ITERACION---------------------------------&quot;</span><span class="p">)</span>  
+while(not converged):
+    print(&quot;---------------------------------ITERACION---------------------------------&quot;)  
 
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------Matriz C Entrada------------&quot;</span><span class="p">)</span>
-    <span class="n">sp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>    
+    print(&quot;------------Matriz C Entrada------------&quot;)
+    sp.pprint(sp.Matrix(C))    
     
-    <span class="c1">#Paso 4. Calcular P, J y K</span>
-    <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nbf</span><span class="p">,</span><span class="n">nbf</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nbf</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nbf</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ndocc</span><span class="p">):</span>
-                    <span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">C</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----------------Matriz P----------------&quot;</span><span class="p">)</span>
-    <span class="n">sp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">P</span><span class="p">))</span>
+    #Paso 4. Calcular P, J y K
+    P = np.zeros((nbf,nbf))
+    for i in range(nbf):
+        for j in range(nbf):
+            for k in range(ndocc):
+                    P[i][j] = P[i][j] + C[i][k]*C[j][k]
+    print(&quot;----------------Matriz P----------------&quot;)
+    sp.pprint(sp.Matrix(P))
                     
-    <span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nbf</span><span class="p">,</span><span class="n">nbf</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nbf</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nbf</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nbf</span><span class="p">):</span>
-                <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nbf</span><span class="p">):</span>
-                    <span class="n">J</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">J</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">P</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">l</span><span class="p">]</span><span class="o">*</span><span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">l</span><span class="p">][</span><span class="n">k</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----------------Matriz J----------------&quot;</span><span class="p">)</span>
-    <span class="n">sp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">J</span><span class="p">))</span>
+    J = np.zeros((nbf,nbf))
+    for i in range(nbf):
+        for j in range(nbf):
+            for k in range(nbf):
+                for l in range(nbf):
+                    J[i][j] = J[i][j] + P[k][l]*I[i][j][l][k]
+    print(&quot;----------------Matriz J----------------&quot;)
+    sp.pprint(sp.Matrix(J))
                     
-    <span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nbf</span><span class="p">,</span><span class="n">nbf</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nbf</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nbf</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nbf</span><span class="p">):</span>
-                <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nbf</span><span class="p">):</span>
-                    <span class="n">K</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">K</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">P</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">l</span><span class="p">]</span><span class="o">*</span><span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">l</span><span class="p">][</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>         
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----------------Matriz K----------------&quot;</span><span class="p">)</span>
-    <span class="n">sp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">K</span><span class="p">))</span>                    
+    K = np.zeros((nbf,nbf))
+    for i in range(nbf):
+        for j in range(nbf):
+            for k in range(nbf):
+                for l in range(nbf):
+                    K[i][j] = K[i][j] + P[k][l]*I[i][l][k][j]         
+    print(&quot;----------------Matriz K----------------&quot;)
+    sp.pprint(sp.Matrix(K))                    
 
-    <span class="c1">#Paso 5. Calcular F = H + 2J - K</span>
-    <span class="n">F</span> <span class="o">=</span> <span class="n">H</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">J</span> <span class="o">-</span> <span class="n">K</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----------------Matriz F----------------&quot;</span><span class="p">)</span>
-    <span class="n">sp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">F</span><span class="p">))</span>
+    #Paso 5. Calcular F = H + 2J - K
+    F = H + 2*J - K
+    print(&quot;----------------Matriz F----------------&quot;)
+    sp.pprint(sp.Matrix(F))
     
-    <span class="c1">#Paso 6. Resolver FC=SCE</span>
-    <span class="n">E</span><span class="p">,</span><span class="n">C</span> <span class="o">=</span> <span class="n">eigh</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">eigvals_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------Matriz C Salida-------------&quot;</span><span class="p">)</span>
-    <span class="n">sp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
+    #Paso 6. Resolver FC=SCE
+    E,C = eigh(F, S, eigvals_only=False)
+    print(&quot;-------------Matriz C Salida-------------&quot;)
+    sp.pprint(sp.Matrix(C))
     
-    <span class="c1">#Paso 7. Calcular E=sum_i sum_j P_ji (H_ij+F_ij)</span>
-    <span class="n">E_elec</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nbf</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nbf</span><span class="p">):</span>
-            <span class="n">E_elec</span> <span class="o">=</span> <span class="n">E_elec</span> <span class="o">+</span> <span class="n">P</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">H</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">F</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
+    #Paso 7. Calcular E=sum_i sum_j P_ji (H_ij+F_ij)
+    E_elec = 0.0
+    for i in range(nbf):
+        for j in range(nbf):
+            E_elec = E_elec + P[j][i]*(H[i][j] + F[i][j])
 
     
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Energia Electronica: &quot;</span><span class="p">,</span><span class="n">E_elec</span><span class="p">)</span>
+    print(&quot;Energia Electronica: &quot;,E_elec)
 
-    <span class="c1">#Paso 8. ¿$E_i=E_{i-1}$?, Si: acabe. No: volver a paso 4.</span>
-    <span class="k">if</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">E_old</span> <span class="o">-</span> <span class="n">E_elec</span><span class="p">)</span><span class="o">&lt;</span> <span class="mf">0.0000001</span><span class="p">):</span>
-        <span class="n">converged</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">E_old</span> <span class="o">=</span> <span class="n">E_elec</span>
+    #Paso 8. ¿$E_i=E_{i-1}$?, Si: acabe. No: volver a paso 4.
+    if(abs(E_old - E_elec)&lt; 0.0000001):
+        converged = True
+    else:
+        E_old = E_elec
 </pre></div>
 </div>
 </div>
@@ -831,10 +933,10 @@ E_{Tot} = E_{elec} + E_{nuc}
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E_nuc</span> <span class="o">=</span> <span class="n">H2</span><span class="o">.</span><span class="n">energy_nuc</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Energia nuclear: &quot;</span><span class="p">,</span> <span class="n">E_nuc</span><span class="p">)</span>
-<span class="n">E_T</span> <span class="o">=</span> <span class="n">E_elec</span> <span class="o">+</span> <span class="n">E_nuc</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Energia Total: &quot;</span><span class="p">,</span> <span class="n">E_T</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>E_nuc = H2.energy_nuc()
+print(&quot;Energia nuclear: &quot;, E_nuc)
+E_T = E_elec + E_nuc
+print(&quot;Energia Total: &quot;, E_T)
 </pre></div>
 </div>
 </div>
@@ -871,26 +973,26 @@ Energia Total:  -1.116684387085341
 </table>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">scf</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from pyscf import scf
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H2</span> <span class="o">=</span> <span class="n">pyscf</span><span class="o">.</span><span class="n">gto</span><span class="o">.</span><span class="n">Mole</span><span class="p">(</span><span class="n">atom</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">    H 0.0000  0.0000 0.0000</span>
-<span class="s2">    H 0.0000  0.0000 0.7414 </span>
-<span class="s2">    &quot;&quot;&quot;</span><span class="p">,</span><span class="n">basis</span> <span class="o">=</span> <span class="s2">&quot;STO-3G&quot;</span><span class="p">)</span>
-<span class="n">H2</span> <span class="o">=</span> <span class="n">H2</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>H2 = pyscf.gto.Mole(atom = &quot;&quot;&quot;
+    H 0.0000  0.0000 0.0000
+    H 0.0000  0.0000 0.7414 
+    &quot;&quot;&quot;,basis = &quot;STO-3G&quot;)
+H2 = H2.build()
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rhf</span> <span class="o">=</span> <span class="n">scf</span><span class="o">.</span><span class="n">RHF</span><span class="p">(</span><span class="n">H2</span><span class="p">)</span>
-<span class="n">rhf</span><span class="o">.</span><span class="n">kernel</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>rhf = scf.RHF(H2)
+rhf.kernel()
 </pre></div>
 </div>
 </div>
